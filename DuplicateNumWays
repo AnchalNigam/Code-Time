@@ -1,0 +1,18 @@
+To find duplicate numbers:
+
+One way - with O(n) space and O(n) complexity
+
+1. Use dictionary to store how many time that number is repeating
+2. Then iterate iver that dict and check who is greater than 1 and add to your result string(res= "") with space.
+
+
+Other way - with O(1) space and O(n) complexity
+
+1. Sort the array
+2. Check its adjaccent, if its same then add this to res string.
+
+3rd way - with O(1) space and O(n) complexity
+
+
+
+
