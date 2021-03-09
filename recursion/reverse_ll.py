@@ -13,19 +13,24 @@ class LinkedList:
       print(temp.data)
       temp = temp.next
 
-
+  def reverse(self, root):
+    if root is None:
+      return
+    self.reverse(root.next)
+    print(root.data)
 
 if __name__ == '__main__':
   linkedList = LinkedList()
-  linkedList.head = Node(1)
+  root = Node(1)
   second = Node(3)
   third = Node(4)
   fourth = Node(5)
 
-  linkedList.head.next = second
+  root.next = second
   second.next = third
   third.next = fourth
 
-  linkedList.print_list()
+  # linkedList.print_list()
+  linkedList.reverse(root)
 
 

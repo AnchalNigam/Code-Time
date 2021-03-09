@@ -1,0 +1,65 @@
+hash, sorting
+linkedlist - slow fast ptr (hair tortise)
+change the value of node with value you want
+head is basically first node
+Floyd's detection cycle algo
+recursion me by reference array, obj (every call of recursion apna picture bana ke rkhta hai
+apne variables hte h bt agr reference wale type rkhoge like aray ob th wo updated pic 
+rkhta) - if primitive th fr return krvao ar reference me th maintain rhega h
+
+pass by reference hta h array, obj and all as we can change their value
+arr = [1,2]
+def check(arr):
+  check[0] = 45
+op arr = [45,2]
+it will change arr value outside the env
+whereas primitive one string, number change outside me nhi hga becase agr hm assignmet
+kr dete h th fr naya ho jata hai memory me entry
+def check(arr)
+  arr = [9,0]
+
+o/p arr =[1,2]
+
+it will not alter outer arr[1,2] as you have reassigned it
+
+https://stackoverflow.com/questions/986006/how-do-i-pass-a-variable-by-reference
+
+if you want to maintain value during recursive calls, either pass that variable as argument
+or recursive function define inside another function and give outer function
+result variable and usethat result variable
+
+1. recursion me har call apna variable maintain krta hai , if reference ka scene hta haith change
+ho jata hai variable ka value. 
+2. so return kroge th previous call k updated value mil jaega or updated value pane k lie 
+array, obj ye sb use kro
+3. recursion apne aap previous call pe aa jata hai jaise uska next call khatam hta hai, you
+dont need to tell ki vapis kab ana wo apne aap aa jata h jaise h us function
+ka execution kahatam hta h th jisne use callkia hota h woexecute shuru h jata
+
+ways to solve problems:
+
+Dict usage
+sort the array and then do
+Two pointers
+sliding window
+if paaas k element and all type ques h(next greater element eg) th stack queue
+keep max sum no need to keep all sun in array and then print max sum
+itertools(combination k way dhudhna hai kse solve hga)
+sliding window
+loop starts from left and right and acc to value dec by 1
+Tuple can also be used to solve codes
+
+Always dry run your code after writing
+make sure to check case of when array or string of length 1 or 0 
+
+when continuous types question hga toh sliding window
+slidig window where window sizze is fixed and some question me window size nikalna hta hai
+according to questions
+Optimizaton can be done just by removing print and easy builtin methods usage
+
+
+LENGTH OF LONGEST SUBSTRING WHOS NOT HAVING REPEATING CHARACTER
+1. slinding window ka scene 
+2. hm map banaynge ye dkhne k lie ki bhai repeating character kahan pe aya. jahan pe milta hai
+fr us window k chota krne lagte tab tak jab tak koi bhi window me repeating char na mile
+jaise nhi milta fr hm apna j badha dete mns window size badha dete 

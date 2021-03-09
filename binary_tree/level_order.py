@@ -3,7 +3,31 @@ class Node:
     self.left = None
     self.val = data
     self.right = None
-
+def BFS(root):
+  if root is None:
+    return
+  else:
+    stack = []
+    stack.append([root])
+    stack2 = []
+    stack2.append([root.val])
+    while len(stack) != 0:
+      poppedArr = stack.pop(0)
+      levelArr = []
+      while len(poppedArr) > 0:
+        poppedElem = poppedArr.pop(0)
+        # stack2.append(poppedElem)
+        if poppedElem.left:
+          levelArr.append(poppedElem.left)
+        if poppedElem.right:
+          levelArr.append(poppedElem.right)
+      if len(levelArr) > 0:
+        pushLevelArr = []
+        for i in levelArr:
+          pushLevelArr.append(i.val)
+        stack2.append(pushLevelArr)
+        stack.append(levelArr)
+  return stack2
 
 def BFSTraversal(root):
   if root is None:
@@ -85,46 +109,89 @@ def isSymmetric(root):
 #  2nd way 
 def isSymmetric2(root):
   if root is None:
-    return 'yes'
+    return True
   elif root.left is None and root.right is None:
-    return 'yes'
+    return True
   elif root.left is None or root.right is None:
-    return 'No'
+    return False
   else:
-    leftNode = []
-    rightNode = []
-    if root.right.val == root.left.val:
-      leftNode.append(root.left)
-      rightNode.append(root.right)
+    left = []
+    right  = []
+    if root.left.val == root.right.val:
+      left.append(root.left)
+      right.append(root.right)
     else:
       return False
-    while len(leftNode) > 0 and len(rightNode) > 0:
-      popl = leftNode.pop(0)
-      popr = rightNode.pop(0)
-      if popl.left and popr.right:
-        if popl.left.val == popr.right.val:
-          leftNode.append(popl.left)
-          rightNode.append(popr.right)
+    while len(left) > 0 and len(right) > 0:
+      lpop = left.pop()
+      rpop = right.pop()
+      print(lpop.val, rpop.val, 'test')
+      if lpop.left and rpop.right:
+        if lpop.left.val == rpop.right.val:
+          print(lpop.left.val, rpop.right.val, 'jii')
+          left.append(lpop.left)
+          right.append(rpop.right)
         else:
+          print('second')
           return False
-      elif  popl.left or popr.right:
+      elif lpop.left or rpop.right:
+        print('third')
         return False
-      if popl.right and popr.left:
-        if popl.right.val == popr.left.val:
-          leftNode.append(popl.right)
-          rightNode.append(popr.left)
+      if rpop.left and lpop.right:
+        if rpop.left.val == lpop.right.val:
+          print('checking')
+          left.append(rpop.left)
+          right.append(lpop.right)
         else:
+          print('ui')
           return False
-      elif  popl.right or popr.left:
+      elif lpop.right  or rpop.left:
+        print(lpop.right.val, 'kyy')
         return False
-    return True
+  return True
+  # if root is None:
+  #   return 'yes'
+  # elif root.left is None and root.right is None:
+  #   return 'yes'
+  # elif root.left is None or root.right is None:
+  #   return 'No'
+  # else:
+  #   leftNode = []
+  #   rightNode = []
+  #   if root.right.val == root.left.val:
+  #     leftNode.append(root.left)
+  #     rightNode.append(root.right)
+  #   else:
+  #     return False
+  #   while len(leftNode) > 0 and len(rightNode) > 0:
+  #     popl = leftNode.pop(0)
+  #     popr = rightNode.pop(0)
+  #     if popl.left and popr.right:
+  #       if popl.left.val == popr.right.val:
+  #         leftNode.append(popl.left)
+  #         rightNode.append(popr.right)
+  #       else:
+  #         return False
+  #     elif  popl.left or popr.right:
+  #       return False
+  #     if popl.right and popr.left:
+  #       if popl.right.val == popr.left.val:
+  #         leftNode.append(popl.right)
+  #         rightNode.append(popr.left)
+  #       else:
+  #         return False
+  #     elif  popl.right or popr.left:
+  #       return False
+  #   return True
 
 
 # Code execution starts here 
 if __name__=='__main__': 
   root = Node(1)
   root.left = Node(2)
-  root.right = Node(3)
-  # root.left.left = Node(3)
-  # root.right.right = Node(4)
-  print(isSymmetric2(root))
+  root.right = Node(2)
+  root.left.left = Node(3)
+  root.left.right = Node(4)
+  root.right.left = Node(4)
+  root.right.right = Node(3)
+  print(BFS(root))

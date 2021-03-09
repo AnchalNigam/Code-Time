@@ -14,3 +14,7 @@ def binarySearch(arr, k):
       high = mid-1
   return -1
 binarySearch(arr,k)
+
+
+# why low+high/2 not because every integer type is having some holding capacity so if high
+# is more then overflow occurs that your integrer does not hold and give unexpected result

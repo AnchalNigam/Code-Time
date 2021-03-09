@@ -40,4 +40,23 @@ for t in range(T):
     
 for nextLargeElems in nextLargeElemFinalArr:
     print(' '.join(nextLargeElems))
+
+# 2nd way
+const stack = []
+const G = [];
+for(let idx = n-1; idx >= 0; idx--) {
+  while(stack.length > 0 && stack[stack.length-1] <= arr[idx]) {
+    stack.pop();
+  }
+  
+  if(stack.length === 0) {
+    G.unshift(-1);
+  } else {
+    G.unshift(stack[stack.length-1]);
+  }
+  
+  stack.push(arr[idx]);
+}
+return G;
+
     
