@@ -9,6 +9,13 @@ print(arr)
 for idx in range(n):
   print(arr[idx]//n, end="")
 
+# explanation - once you iterate over array, first make it 0th index like 0 to n hai then make 
+# 0 to n-1 by subtractng as array is 0th index. 
+# second step is - for every occurence of that particular index means suppose 2 is occured the
+# it means on 2nd index, your value will be updated so add n. for every occurence of 2 add n
+# it will tell you 2 occurence, and for original value at that index, you know reminder would be
+#  the original value of that index. so reminder is basically original value and divison by n is 
+# actual one
 # def majorityElement(A, N):
 #       #Your code here
 #       for idx in range(len(A)):
