@@ -1,0 +1,16 @@
+pros -
+1. elegant 
+2. complex for loop and less 
+3. trees, json objects, graphs - best use case & recursion makes it easy
+
+
+cons
+1. cpu overhead
+2. out of memory errors/stack overflow exception
+
+
+1. think of base case - what smallest stuff you can encounter
+2. what to do with return values -> approach to result
+
+..........................................
+1. To return something from recursion , use return 
