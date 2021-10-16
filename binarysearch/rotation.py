@@ -36,3 +36,5 @@ class Solution:
 # if there is mid > a[high] means this is not following patter means answer lies in right part
 # in this way we will find pivot. then after that we have to find where is this target..
 # left part rotatn or right part rotatn, then index find
+
+# relateble questn - minimum element in sorted array, no of times array rotated
