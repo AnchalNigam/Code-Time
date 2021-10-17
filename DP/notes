@@ -1,0 +1,39 @@
+
+whether the problem is dp or not -
+
+1. can apply choices
+2. optimal like max profit, min profit pucha ho 
+
+=> overlapping problems basically recursive call hapens two times means 
+in one call, we can store its result and in other no need to call that func
+recursive+overlapping[memoziation] = dp
+
+recursion + storage = DP
+recursion=> memoization or top down approach
+
+
+1. knapsack problems (0/1)
+=> 0/1 means either choose that item or not. can't choose semi items value
+=> fractional means fraction le skte hai for any item
+=> unbounded means u can choose that item any number of items. ek h item k 100 bar choose kr lo
+no boundation whereas in 0/1 and fractional, only 1 item choose 1 time
+
+
+2. how to code dp problem
+=> base condition  = think of its valid smalledst input like no items
+=> choice diagram code
+=> call recursive function -> with smallest ip everytime...if calling by n then next time n-1 then 
+n-2 so on
+
+try to visualize recursion. i visualized at knapsack-> try to think 2 elements, 1, 4[and weight 4]
+then visualize how 4 answer comes. check aditya's videos as well
+
+
+memoization dec complexity
+1. nxm matrix. n and m are those who are changing like in knapsack, n (items) and weight is changing
+so nxm would be ur items and weight
+top down approach is better as recursive calls are not there
+> n+1 , w+1 because we need to save base condition result in an array. for n=0 and
+w=0 what would be the answer. if n is
+5 then n+1 initialize and end result[n+1][w+1] would be res means for 5 element and sum
+11 answer we can take out[bottom right corner]
