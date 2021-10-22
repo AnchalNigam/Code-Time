@@ -14,3 +14,17 @@ cons
 
 ..........................................
 1. To return something from recursion , use return 
+2. if suppose you dont want to use return when recursive function call, so when
+that base case hit so automatically all those function calls that calls itself will popped out
+like if solve(2,3) calling solve(2,2) calling solve(2,1) calling solve(2,0) calling
+solve(0, -1) then as we get return value(base case) then all functions -
+solve(2,3), solve(2,2), solve(2,1), solve(2,0), solve(0,-1) will get popped out and next call 
+will get executed. in short those has called that function will get vanished
+3. first think there is combination type thing in question then think of recursion. 
+think how your mind is actually approaching like 2,3,5,6,8,10 ip. u think ohk first take 2
+then 3 the 5 then think ohk i can make other combo bt how, by not inclduing 5 then look
+forward input. for input [2], two set-[],[2]. one with 2 and without 2 so same logic apply with base 
+case.
+think of small input (base case) and see how u actually solving smaller input thing.
+can think from smaller to higher input
+
