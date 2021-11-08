@@ -1,0 +1,16 @@
+dp[i][j] = max(val[i-1] + dp[i-1][j-val[i-1]]), dp[i-1][j])
+else 
+  dp[i][j] = dp[i-1][j]
+
+UNBOUNDED knapsack
+
+AS we ca include same element again and again and only those we can include which we have taken
+those we have not taken that means thats element is not worthy so those elements that we have taken
+use ko again and again call krenge val[i-1] + dp[i][j-val[i-1]] whereas those
+not taken usko i-1 pe call krenge  dp[i-1][j]
+
+DP notes - 
+1. think of smaller input
+2. when no input then think
+3. recursion solve then make it top down as top down is just application of recursion(i guess)
+knspsack is basically choice and combination ban rhe h

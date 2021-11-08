@@ -1,4 +1,5 @@
 
+
 whether the problem is dp or not -
 
 1. can apply choices
@@ -37,3 +38,13 @@ top down approach is better as recursive calls are not there
 w=0 what would be the answer. if n is
 5 then n+1 initialize and end result[n+1][w+1] would be res means for 5 element and sum
 11 answer we can take out[bottom right corner]
+
+2. unbounded knapsack
+in this, we can choose same items multiple times. like [2,1,3] now in 0/1 knapsack,
+we include 2 only once, eithre include or not or if include then dubara we dont consider ite
+but, in unbounded, 2 can be taken multiple times
+
+DP notes - 
+1. think of smaller input
+2. when no input then think
+3. recursion solve then make it top down as top down is just application of recursion(i guess)
