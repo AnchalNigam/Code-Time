@@ -1,0 +1,28 @@
+recursion - 
+
+think of base condition 
+think of smaller ip
+choice diagram
+
+
+1. approach here is simple think of small ip...like valid small ip and then jaisa
+hmara code depend kr rha hai like lcs so for n =0 and m =0 then obvio lcs is 0
+so return 0
+then think of choice diagram and then visualize smaller ip. without choice diagram
+its not possible to think what we can do with smaller ip. once choice diag is done
+then visualize smaller ip
+
+2. top down is basically recursion+memoization. aditya made a confuso here he is saying bottom up
+for recursion+memoization but actually it is top down
+
+if multiple times recursion call wit diff ip is dp and if one time call then pure recursion
+
+memoization or top down - table (matrix) banege for those variables which are changing.
+like in knapsack, weight and array size is changing so [n][w] matrix will be made and
+in lcs, both string change, so n m ki matrix bane
+
+3. recursion - either memoization or do topdown(aditya)(bottom actually) both are dp
+
+4. how to write top down(bottom up actually) 
+* recursion base code is initializatin
+* then smaller ip se lager ip calculate krenge [i, j from 1 to last]. choice diagram as it is [for better check longest_common code - three ways are written]

@@ -10,7 +10,12 @@ use ko again and again call krenge val[i-1] + dp[i][j-val[i-1]] whereas those
 not taken usko i-1 pe call krenge  dp[i-1][j]
 
 DP notes - 
-1. think of smaller input
+1. think of smaller input after thinking choice diagram
 2. when no input then think
 3. recursion solve then make it top down as top down is just application of recursion(i guess)
 knspsack is basically choice and combination ban rhe h
+
+
+
+##### top down is basically recursion+memoization. aditya made a confuso here he is saying bottom up
+for recursion+memoization but actually it is top down
