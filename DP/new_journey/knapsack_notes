@@ -19,3 +19,11 @@ knspsack is basically choice and combination ban rhe h
 
 ##### top down is basically recursion+memoization. aditya made a confuso here he is saying bottom up
 for recursion+memoization but actually it is top down
+
+when there is combination type of things, dp lag skta h...and choice wala scene hga ..either 
+with some constraint like it should exceed weight bla bla so choices will be done on basis of
+constraint and then make code
+
+DP = EITHER CHOICE OR OPTIMAL ASK...maximize this, minimize that(longest, shortest, maximize)
+
+if there is two array or 1 array and one weight array ..basically choice with constraint then knapsack

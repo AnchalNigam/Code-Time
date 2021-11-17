@@ -26,3 +26,8 @@ in lcs, both string change, so n m ki matrix bane
 4. how to write top down(bottom up actually) 
 * recursion base code is initializatin
 * then smaller ip se lager ip calculate krenge [i, j from 1 to last]. choice diagram as it is [for better check longest_common code - three ways are written]
+
+
+if there is two strings and asking for optimal thing like maximize minimize then might be LCS
+in lcs type questn, lcs nikal ke fr kuch jugad krke answwer find out..ek straight forward
+lcs, other lcs find out then tweaking and get the answer
