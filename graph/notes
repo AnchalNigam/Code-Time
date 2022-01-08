@@ -1,0 +1,32 @@
+bfs is visit and visit all adjacent nodes ..when all adjacent nodes are visited
+then visit adjacent nodes nodes....so its like level order traversal in tree
+its name is given for graph but for tree its level order
+
+dfs is depth first..in this visit node and expore adjacent, if found adjacent node then dont traverse
+other adjacent nodes of node1, first explore node2 adjacent nodes..when no adjacent nodefound
+come back to node2 and explore other adjacent nodes, if no ither adjacent nodes
+come back again to node1 and explore adjacent nodes...its like preorder traversal in tree
+
+
+PYTHON SET - 
+A Python set is implemented as a hash table with just `keys` and no `values` (or dummy values). That key is passed into a hash function, which returns a block address or index (of the base array on which the set is built).
+
+We know that any index can be accessed in O(1). And here, we are not accessing the `value` at the index, but we are, checking the `existence` of that index in our base array, which is, of course, O(1).
+
+But you may notice others saying the worst case for a lookup is O(n)!! How?
+
+Things get tricky here:
+
+Our hash function, which returns an index, can return the same index for 2 or more different `keys,` which is called a Hash Collision, and this will result in 2 keys allotted at the same index. What happens here?
+
+So basically, there are multiple ways to mitigate this. One of the standard methods is to allot a pointer towards a `linked list` at that index, and “those keys” with the same `index` are now members of a linked list, with each key stored in a node. (Generally, how linked list works). And we know that to traverse down a linked list, we need O(i) time, where `i` is the length of the linked list (or the last element/ or the element to be searched).
+
+So suppose we get a collision at every key, and we end up with one `index` for every key. Thus all keys will be stored in a linked list in different nodes following the previous one. And our whole Hash Table is now `indeed` a linked list, to be precise:
+We end up with a block with a pointer that points towards “this” linked list.
+
+We have `n` items inside the linked list (which means all items) and to lookup an element that turned out to be the element in our last node inside the linked list, we have to traverse through the whole linked list and hence requiring O(n) steps.
+
+This is where we get the worst case of O(n) lookup.
+
+Still, such extreme collisions are infrequent and `impractical` in real life, and we generally have a lot of blocks to be allotted in our python implementation to prevent such collisions. So we say that our average algorithmic complexity is O(1)!
+
