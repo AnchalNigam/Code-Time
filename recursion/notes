@@ -28,3 +28,23 @@ case.
 think of small input (base case) and see how u actually solving smaller input thing.
 can think from smaller to higher input
 
+3. exponential call - first level n value, n/2, n/4 -> so every branch is actually splitting 
+into two parts and goes to depth meaning branch^depth =  2^n (n till it becomes 1 )
+ O(a^n) (a=number of options per choice, n=number of choices to make)
+
+ SUBSETS - 
+ see image (recusrion.jpg)
+ here basically we ae taking decision whether to take that number or not,
+ if yes, then modify op and remove that number from ip(make new ip)
+ if no, then op old one, and io will be removing that number
+
+ Strategy of dp and recursion
+ 1. think of smaller ip
+ 2. think of one member of ip, there is choice then last answer me wo member nhi hga kisi answer set me 
+ kisi me hga..like in subsets, 1 kisi subset me hta h kisi me nhi so basically here 1 is considered as
+ choicy member so each evey possible case check and make new ip and op acc to it.if 1 is included thenwhat
+ and when not then what
+ 3. there is no choice stuff like 1 is in all answers like in pair party..think 1 as one entity
+ what are possible things that can happen to 1..1 is invidiual, i can pair to 2 or 3
+ so 1, 12, 13 three possobilities then remaining k nikalo and add both possibilities
+ dp me memo laga do either by 2d matrix or dict

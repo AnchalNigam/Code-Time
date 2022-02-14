@@ -1,4 +1,4 @@
-def longestCommonSequence(text1, text2):
+def longestCommonString(text1, text2):
   dp = [[0 for i in range(len(text2)+1)] for j in range(len(text1)+1)]
   maxx = 0
   for i in range(1, len(text1)+1):
@@ -11,3 +11,8 @@ def longestCommonSequence(text1, text2):
       else:
         dp[i][j] = 0
   return maxx
+
+text1 = "abcde"
+text2 = "ace"
+
+print(longestCommonString(text1, text2))
