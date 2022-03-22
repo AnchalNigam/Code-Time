@@ -1,0 +1,26 @@
+slidig window pattern
+1. it asks for contiguous subarray and all(arr, string/sunstr)
+2. it will give k window size
+3. lagest, max, mini dega 
+4. sometimes window size nikalna hota hoga - variable size window
+two types of window -
+fixed window - when k is given
+variable window - ask k what is k? window size can be 5 6 7 acc to quest like largest sum and all
+man lo sum de rkha hai and then u have to find window size and might be ask hua h largest window size
+jiska sum 5 ho or small window size. so is tarah se variable window k size pe questns hote hai
+
+
+1. In fixed, we are maintaining k and then slide krte h and maintain krte h ans
+2. in variable, we dont know k but we know condition, so frst meet the condition like sum
+shoule be equal or greater. if meet then store the ans then as k inc sum krega if we move right
+so we should decrease left pointer until k meet na kr le fr se condition
+see below how left and right pointer are maintained
+total = left = right = 0
+res = len(nums) + 1
+while right < len(nums):
+    total += nums[right]
+    while total >= target:
+        res = min(res, right-left+1)
+        total -= nums[left]
+        left += 1
+  right += 1

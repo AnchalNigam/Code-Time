@@ -30,3 +30,16 @@ This is where we get the worst case of O(n) lookup.
 
 Still, such extreme collisions are infrequent and `impractical` in real life, and we generally have a lot of blocks to be allotted in our python implementation to prevent such collisions. So we say that our average algorithmic complexity is O(1)!
 
+
+TOOLOGICAL SORT
+it is for DAG - directed acycli graph because topo sort means u should come before v
+so you have to write such sort from graph that satisfies above statement
+
+Indegree is edges pointing to you
+topo sort using dfs is just dfs algi applicatn
+bfs (khans algorithmic)
+in this, frstly calculate indegree and add it to queue then pick one and add to topo sort answer and
+then check adjacent node and make it indegree 
+minus 1, if its 0 then add to topo sort answer else move ahead. in this way topo sort prepare
+better - https://www.youtube.com/watch?v=rZv_jHZva34&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=14
+Time - o(v+E), space(o(n))

@@ -1,0 +1,79 @@
+what i learned from coin change
+as backtracking me questions k visualize krna was an easy task for me but as i was facing issue in memo
+in coin change, frst thing is that two params are changing, frst is your no of coins
+and second is target 
+so for memo we need 2d array to maintain at every step like if one coin is there then what
+is feasiblity to make that target. to visualize this memo,
+eg - 
+1,2,3
+target = 3
+==>backtracking version
+result = []
+def solve(i, res, target):
+  if target == 0:
+    result.append(res[:])
+    return
+  if i >= len(coins):
+    return
+
+  if coins[i] <= target:
+    res.append(coins[i])
+    solve(i, res, target-coins[i])
+    res.pop()
+  solve(i+1, res, target)
+solve(0, [], amount)
+
+here we are actually picking one element till its feasiblity like 1 k hm tabtak le rhe h jab
+tak wo 0 ya 0 se kam na h jaye target....so after reaching that point we are popping out 
+last 1 and then taking another coin means when target is 1 and ip[1,2,3] then 0 a agya target next
+call me so now we will pop the lst one from array meaning 1 is still targeta nd res is 1,1 and now
+we are exluding 1 and only seeing 2,3 so in short its same as below function
+here we are using same logic, take 1 and not take 1 ..pick or not pick
+with this pick/notpick logic whole recursion is made....
+so backtracking is similar to recursion ye feeling aya  
+now come to memo part, here two variable h toh 2d memo hga and what challege we faced was n=0 
+se na shuru krke mainly logn=len(coins) se kr rhe 
+so hmne try n=0/1(1st element means [1,2,3] teen coins available h) se kia, n=1 means index
+1 to len(coins) coins available hai, n=2 means index 2 to len(coins) available h coins
+so iska dp aise visiualize kro
+
+0 1 2 3 - amount
+1 1 2 3 - when n = 0  meaning [1,2,3] coins available
+1 0 1 1 - when n = 1  meaning [2,3] coins available
+1 0 0 1 - when n = 2  meaning [3] coins available
+
+so here in this way dp is made
+lets visualize below code..
+def solve(n, amount):
+  if amount == 0:
+      return 1
+  if amount < 0 or n > len(coins):
+      return 0
+   print(n)
+  if dp[n][amount] != -1:
+      return dp[n][amount]
+  t1 = 0
+  if coins[n-1] <= amount:
+      t1 = solve(n, amount-coins[n-1]) 
+
+  t2 = dp[n][amount] = solve(n+1, amount)
+  dp[n][amount] = t1+t2
+  return dp[n][amount]
+
+check image coinschange.jpeg and here is dp value at every n,amount
+[[0, 0, 0, 0], [1, -1, -1, -1], [1, -1, -1, -1], [1, -1, -1, -1]] 1 3
+[[0, 0, 0, 0], [1, -1, -1, -1], [1, -1, -1, -1], [1, -1, -1, -1]] 1 2
+[[0, 0, 0, 0], [1, -1, -1, -1], [1, -1, -1, -1], [1, -1, -1, -1]] 1 1
+[[0, 0, 0, 0], [1, -1, -1, -1], [1, -1, -1, -1], [1, -1, -1, -1]] 2 1
+[[0, 0, 0, 0], [1, -1, -1, -1], [1, -1, -1, -1], [1, -1, -1, -1]] 3 1
+[[0, 0, 0, 0], [1, 1, -1, -1], [1, 0, -1, -1], [1, 0, -1, -1]] 2 2
+[[0, 0, 0, 0], [1, 1, -1, -1], [1, 0, -1, -1], [1, 0, -1, -1]] 3 2
+[[0, 0, 0, 0], [1, 1, 2, -1], [1, 0, 1, -1], [1, 0, 0, -1]] 2 3
+[[0, 0, 0, 0], [1, 1, 2, -1], [1, 0, 1, -1], [1, 0, 0, -1]] 2 1
+[[0, 0, 0, 0], [1, 1, 2, -1], [1, 0, 1, -1], [1, 0, 0, -1]] 3 3
+[[0, 0, 0, 0], [1, 1, 2, 3], [1, 0, 1, 1], [1, 0, 0, 1]]
+for 1 target like target = 1 hm dekh rhe h ki agr [1,2,3] available hga then kya ways ha
+only 2, 3 hga thn kya h and only [3] then kya h
+INTERESTING - 
+time complexity - n*amount
+space also same

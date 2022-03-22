@@ -1,0 +1,6 @@
+Lets suppose 1 non- leaves node then total number of leaves node is equal to 2. Means you have root only then total number of leaves contain by root in full binary tree is 2.
+
+-> if 3 non-leaves node then total number of leaves node in full binary tree is = 4
+lead node  = non leaf+1 or non leaf = leaf-1
+that means total of nodes = N(no of leaf nodes )+ N(no of leaf nodes) - 1
+= 2N-1 where N is no of leaf nodes
