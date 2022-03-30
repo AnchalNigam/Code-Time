@@ -24,3 +24,6 @@ while right < len(nums):
         total -= nums[left]
         left += 1
   right += 1
+
+
+last ques - permutations in a string(hard)

@@ -1,4 +1,4 @@
-what i learned from coin change
+what i learned from total ways of coin
 as backtracking me questions k visualize krna was an easy task for me but as i was facing issue in memo
 in coin change, frst thing is that two params are changing, frst is your no of coins
 and second is target 

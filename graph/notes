@@ -43,3 +43,11 @@ then check adjacent node and make it indegree
 minus 1, if its 0 then add to topo sort answer else move ahead. in this way topo sort prepare
 better - https://www.youtube.com/watch?v=rZv_jHZva34&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=14
 Time - o(v+E), space(o(n))
+
+
+minimum spanning tree is tree that is built using graph nodes = n and edges
+n-1 in such a way that every node is connected to every other node and edges wight all added is mini
+among all other spaning tree then it is minimum spanning tree
+
+bfs = first out - queue
+dfs = last out - stack
