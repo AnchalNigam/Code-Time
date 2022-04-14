@@ -51,3 +51,8 @@ among all other spaning tree then it is minimum spanning tree
 
 bfs = first out - queue
 dfs = last out - stack
+
+bridges in graph are those if we remove any edge then it breaks into multiple graphs(disconnected) ..
+what i obsered is if we remove cycle koi farak ni but cycle not hai then break h rha hai
+
+I have left bridges, articulatn, kosarjus, bellman

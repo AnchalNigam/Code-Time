@@ -17,6 +17,7 @@ def topoSort(graph):
     for neighbour in graph[node]:
       if neighbour not in visited:
         dfs(neighbour)
+    stack.append(node)
   for v in graph:
     if v not in visited:
       dfs(v)

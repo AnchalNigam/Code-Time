@@ -1,0 +1,47 @@
+
+xor operator - even 1 is 0 and odd 1 is 1 - same bits means 0 and diff bit is 1
+and operator - all 1 is 1 ...any 0is 0 meaning ek bhi 0 aya toh 0 hga
+or - any 1 is 1, all 0 is 0 
+negate - flip bits
+right shift - ight side bit gayab h jaega ..right shift h jaynge - 101 . 5>>1 means 1 gayab h jaega right side
+wala . that is (10)base2 which is nothing it is 2 in decimal....so right shift matb
+jitna bar rigt shift hai like 1,2 utta bar apko divide krna h decimal me
+binary me bits k riht side shift krna hai and decimal me smjhe toh number kutte bar 2 se divide krna hai
+
+left shift me left me shift krna hai and decimal me smjhe toh multiply krna hai 2 se
+
+swapping of number steps
+1. a =  a^b 
+2. b = a^b
+3. a = a^b
+
+xor of two same number is 0
+
+to find partiular bit is set or not means us particular bit 1 hai ya 0..set mns it is 1 else 0 means 
+not set.
+to find..number k mask k sath & kro..mask aisa create kro k jis bit ka pucha h whn 1 ho
+if 1 is there then uska & obvio 1 ayega if actual number k us bit p 1 hga vrna 0 ayega
+so mask&n will give u 1 or 0 ..mask create krna easy h just 1 shift kr do jis bit ka pucha hai
+mask = 1<<i 
+mask&n = (1<<i)&n -  this will give u particular bit is set or not
+
+set the ith bit = mask | n = mask is ((1<<n) | n)
+unset the ith bit - mask & n = mask is ~(1<<i) & n
+
+n-1 is last 1 n 0 hta hai n-1 me
+so to unset 1st 1 do n & (n-1)
+12 jo h wo kisi 2 ka power hai ni islie wo jite bhi power hte h uske neche 2 ki like 1,2,4,8 - ab inme se 4+8(2^2+2^3) will make 12.
+so power of 2 me dekho 2^2+ 2^3 isme 2 and 3rd bit will be 1 rest will be 0 - 12 ka binary
+represntn will be 1100
+lets say 8 - as its a power of 2 which 2^3 so just make 3rd bit as 1 and rest 0 which is 1000
+1000
+11 - 1+2+8 - 1011
+
+to find its power of 2 - n&n-1 == 0 it means ye power h 2 ka
+
+to set all 1s to 0 -
+while (n!=0):
+  n = n&(n-1)
+  cnt++
+
+o(setof bits)
