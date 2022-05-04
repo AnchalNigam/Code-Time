@@ -22,7 +22,9 @@ class Solution:
         return res
       
 # time complexity  - 0(n) , space -o(1). here main logic is put on as they have said 1 to n h honge number
-# so cyclic sort lagaya gya k swapping us us number se kr do and last me iterate krke wrong places integer
+# so cyclic sort lagaya gya  basically as they said 1 to n h rhega
+# toh har number k apne jagah pe pahuchao na..1 k 0th pe, 2 ko 1th index pe, 3 ko 2nd and so on
+# so ab j apne jagah pe already hai( swapping us us number se kr do )and last me iterate krke wrong places integer
 # ko consider kro
 
 class Solution:
