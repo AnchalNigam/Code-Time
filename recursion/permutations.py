@@ -19,3 +19,6 @@ print(permutations([1,2,3]))
 # Time Complexity: O(n*n!) The time complexity is the same as the above approach, i.e. there are n! permutations and it requires O(n) time to print a permutation.
 
 # Auxiliary Space: O(|s|)
+
+# n! as a each level 1 number from array is reducing like in permutn - 4*3*2*1
+# and at each level we are loopoing in that ip array so n . so overall- n*n!
