@@ -5,14 +5,14 @@
 #   heapq.heapify(pq)
   
 #   for i in range(k, len(nums)):
-#       heapq.heappush(pq, nums[i])
-      
+#       heapq.heappush(pq, nums[i])      
 #       heapq.heappop(pq)
       
 #   return pq[0]
 
-
-
+# time complexity -  as in heapify - log (k) - k is number of elem in heap..
+# we are actually heapifying n elems so nlogk as k elems ka heap bana rhe
+# so nlogk time and space as k ka heap ban rha hai so o(k)
 class MinHeap:
     def __init__(self, nums):
         self.heap = nums

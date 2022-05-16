@@ -1,0 +1,13 @@
+why binary search is better than ternary search?
+in ternary search, we divide array into three halves, 
+ternary three equal halves division, 4 comparisons happen and as three parts so 4*log(base3)n
+and in binary, 2 comparisons happens and division into two equal halves, so 2*log(base2)n.
+more simplify it by dividing both time complexity then
+binary  - log(base2)n
+ternary - 2*log(base3)n
+
+so convert 2*log(base3)n = 2*log2/log3 * log (base2)n >  log(base2)n. 
+since 2*log2/log3 > 1, we actually get more comparisons with the ternary search.so binay is better.
+
+**mainly binary search divide into half concept...either compare with target or mid+1 or mid-1 or both
+check these new journey sawals
