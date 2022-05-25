@@ -14,3 +14,7 @@ def minimizeSum(arr):
 
 # one thing i have learned in heap if any question related to runtime array change and extracting 
 # something and all use heap then see minimize the sum example
+# Time Complexity: O(nLogn), assuming that we use a O(nLogn) sorting algorithm. 
+# Note that heap operations like insert and extract take O(Logn) time.
+# Auxiliary Complexity: O(n). 
+# The space required to store the values in min heap
