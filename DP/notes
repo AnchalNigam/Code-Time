@@ -48,3 +48,10 @@ DP notes -
 1. think of smaller input
 2. when no input then think
 3. recursion solve then make it top down as top down is just application of recursion(i guess)
+
+
+// think of single element of array jaise if we think subsets then think if we are picking it
+then going to next then also we find answer by not picking toh ek elem k dekho
+
+memo k badknapsack k time complexity hta h n*w (depth*width) - n i no of elem and weight kita hai
+ and space o(n*w) + stacko(n)
