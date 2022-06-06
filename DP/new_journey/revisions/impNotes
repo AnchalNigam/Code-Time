@@ -77,3 +77,12 @@ only 2, 3 hga thn kya h and only [3] then kya h
 INTERESTING - 
 time complexity - n*amount
 space also same
+
+Again learnt soething...thin of backtracking, make recursion tree , it will better visualize
+after backtracking, base conditon will be mostly same. then pick non pick..whatever at n=''
+target = '' kya signifies kta hai like target minimal ho toh min of that nikalo...
+after that return dp[n][target] and main is answer would be at n =0 and target . here n=0 means
+all elements of array from 0 to n...n= 1 mns from 1 to n elements and target is like
+n= 1 if we have elements from 1 to n and target is given 2 toh wahat are min coins that
+can make that target using 1 to n elements ye meaning h dp array ka...recursion tree+backtracking
+visualize krke ty to get answer
