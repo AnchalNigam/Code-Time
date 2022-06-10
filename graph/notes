@@ -56,3 +56,14 @@ bridges in graph are those if we remove any edge then it breaks into multiple gr
 what i obsered is if we remove cycle koi farak ni but cycle not hai then break h rha hai
 
 I have left bridges, articulatn, kosarjus, bellman
+
+
+The main difference between defaultdict and dict is that when you try to access or modify a key that's not present in the dictionary, a default value is automatically given to that key .
+defaultdict constructor takes default_factory as an argument that is a callable. This can be for example:
+
+int: default will be an integer value of 0
+
+str: default will be an empty string ""
+
+list: default will be an empty list []
+

@@ -1,0 +1,50 @@
+def detectCycle(graph):
+  n = 9
+  visited = set()
+  dfsVisit = set()
+  def isCyclic(node):
+    stack = []
+    stack.append(node)
+    while stack:
+      # print(queue)
+      vertex = stack[len(stack)-1]
+      visited.add(vertex)
+      dfsVisit.add(vertex)
+      flag = False
+      # print(vertex)
+      for neighbour in graph[vertex]:
+        # print(neighbour, visited)
+        if neighbour not in visited:
+          flag = True
+          stack.append(neighbour)
+          # print(neighbour in visited, visited, neighbour)
+        elif neighbour in dfsVisit:
+          return True
+      if len(graph[vertex]) == 0 or not flag:
+        dfsVisit.remove(stack.pop())
+    return False
+  for v in range(1, n):
+    if v not in visited:
+      if(isCyclic(v)):
+        return True
+  return False
+graph = {
+  1: [2],
+  2: [3],
+  3: [4, 6],
+  4: [5],
+  5: [],
+  6: [5],
+  7: [8],
+  8: [9],
+  9: [7]
+} 
+print(detectCycle(graph))
+
+
+# here main logic is agr koi node hmne process ki from path and we are going back then dfs visit se
+# use hata do..because wo us path se process h gye hai...if agr path se ate hai and dfs visit me
+# unvisited mark h then its not cycle where hai agr visited then there is cycle
+# https://www.youtube.com/watch?v=uzVUw90ZFIg&t=1s
+# course schdule 1 dekhna whn cycle detectn hua h bt without taking two sets ..one set se ...interes
+# ingly hua h check

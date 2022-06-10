@@ -100,3 +100,13 @@ print(detectCycle(graph))
 # yes it is visited so we check parent == neighbour hga toh mns no cycle. now we check 
 # is 8 visited but here 8 is viisted meaning 8 shyd parent hga but nhi h because wo
 # kisi aur path se traverse hua h thats why so ye h main thought h
+
+# revision = i again saw video https://www.youtube.com/watch?v=Y9NFqI6Pzd4
+# main funda is in undirected graph if 1 is connected to 2then 2 is alaso connected to 1
+# so here if any node is visted and again if we are visiting then there ic cycle but but
+# as we know graph me { 1: [2], 2: [1,3]}, here 1 ka negihbout 2 hai and apne 1 k vsit mark kia
+# ab 2 stack me h now..popup comes 2, and 2 k neighbour k dekho 1 hai and ye viisited h toh 
+# it does not mean cycle hai..kyunki 1 ka parent 2 hai toh agr parent same h if visited node toh cyle nhi hge
+# bt agr wo visited h and parent bhi diff hai then its cycle..ye parent wala logic islie lagaya hai
+# because 1->2, 2->1 se adjacent me rhega and we cant say frst level pe k visited h ..hme parent dekhn
+# banta hai
