@@ -67,3 +67,6 @@ str: default will be an empty string ""
 
 list: default will be an empty list []
 
+
+depenedency kind of questn ki ye a b pe dependent h, ye task a b task pe dependent hai
+jab depenedency pe kuch questn h try to do using topo sort

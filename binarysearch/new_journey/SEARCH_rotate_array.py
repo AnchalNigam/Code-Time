@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def search(self, nums, target: int) -> int:
         low = 0
@@ -44,3 +47,48 @@ class Solution:
 
 # The other condition is that A[mid] is not bigger than A[left] meaning a[mid]...a[right] is ascending.
 # In the same manner we can check if target is in that range and cut the search space correspondingly.
+
+class Solution:
+    def findPivot(self, nums):
+        low = 0
+        high = len(nums)-1
+        n = len(nums)-1
+        while low <= high:
+            mid = low + (high-low)//2
+            # print(mid, 'mid')
+            if nums[mid] > nums[n]:
+                low = mid+1
+            else:
+                high = mid-1
+        return high    
+ 
+    def bs(self, nums, target, low, high):
+        # print(low, high, 'high')
+        while low <= high:
+            mid =  low + (high-low)//2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                high = mid-1
+            else:
+                low = mid+1
+        return -1
+    def search(self, nums: List[int], target: int) -> int:
+        pivot = self.findPivot(nums)
+        # print(pivot)
+        low = 0
+        high = len(nums)-1
+        if pivot != -1:
+            if nums[pivot] == target:
+                return pivot
+            elif nums[0] > target:
+                low = pivot+1
+            else:
+                high = pivot
+        return self.bs(nums, target, low, high)
+            
+# solved by own bt striggled 
+# here main idea simple find the pivot...and i compared with last as if know
+# ag rotatn hga toh last me chote elements hnge kisi beech k elems se
+# we compare, mid > n: low = mid+1 else high =mid-1 aise pivot find hga then
+# if target < nums[0] so pivot k right me hga else pivot k left
