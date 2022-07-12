@@ -48,3 +48,305 @@ into two parts and goes to depth meaning branch^depth =  2^n (n till it becomes 
  what are possible things that can happen to 1..1 is invidiual, i can pair to 2 or 3
  so 1, 12, 13 three possobilities then remaining k nikalo and add both possibilities
  dp me memo laga do either by 2d matrix or dict
+
+
+
+IMP
+i learnt about pythons behavior in accessing variable...check addTotalRecursion file
+where i tried multiple examples so basially in recursion, to maintain variable state across
+each recursion call, i used to take arr kind of value = total =[0] then inside recursion
+function changing it to total[0]+=1 which actually holds total value at each recursion call
+but this is not good from readable point of view, why cant use primitive values
+but i learnt about primitive nature, will see in two parts-
+1st part
+if there is global variable like total and u want to access that variable having same name
+that will get printed but if you want to mutate it like total+=1 it will give u
+'local variable 'total' referenced before assignment' error because it looks locally functional
+scope total variable which is not yet defined so it gives u error, to use
+global variable, u have to write at top in function, global total to tell that mutate 
+global variable total, this will change global total as below example
+
+# total = 0
+# def recursive_me(mystring):
+#     global total
+#     chars = len(mystring)
+#  
+#     if chars == 0:
+#         print("Done")
+#         # print(total[0])
+#     else:      
+#       first = int(mystring[0])
+#       total = total + first
+#       recursive_me(mystring[1:])
+
+# recursive_me("4567")
+# print(total)
+
+it will give u perfect answer as we have speificed ki total j hai global wala use kro
+toh btana padta hai otherwise wo locally dekhega
+_my_global = 5
+
+def func1():
+  if True:
+    _my_global = 3
+
+
+def func2():
+    print(_my_global)
+
+func1()
+print(_my_global)
+func2()
+check this example...if we call func2 it will print variable 5 inside func2 bhale h
+hmne  func1 me change kia hai variable value kyunki func1 m hmne ye nhi btaya
+that we are changing global variable..wo local h treat kr rha hai _my_global_ k func1 me
+
+2nd part [ primitive value k bat h rhe hai like int, str]
+variable access in nested function
+very common way of writing of mine, function inside function so agr mjhe koi outer variable of outer
+functn ko access krna rhta hai toh uske  inside function me tmhe error de dega  
+because wo us function me define ni h aisa treat hte hai, to use outerfunctn variable
+write nonlocal 
+The nonlocal statement causes a variable definition to bind to a previously created variable in the nearest scope. Here are some examples to illustrate:
+def sum_list_items(_list):
+    total = 0
+
+    def do_the_sum(_list):
+        for i in _list:
+            total += i
+
+    do_the_sum(_list)
+
+    return total
+
+sum_list_items([1, 2, 3])
+The above example will fail with the error:
+ UnboundLocalError: local variable 'total' referenced before assignment
+
+ Using nonlocal we can get the code to work
+
+ def sum_list_items(_list):
+    total = 0
+
+    def do_the_sum(_list):
+
+        # Define the total variable as non-local, causing it to bind
+        # to the nearest non-global variable also called total.
+        nonlocal total
+
+        for i in _list:
+            total += i
+
+    do_the_sum(_list)
+
+    return total
+
+sum_list_items([1, 2, 3])   // 6
+
+But what does "nearest" mean? Here is another example:
+
+def sum_list_items(_list):
+
+    total = 0
+
+    def do_the_sum(_list):
+
+        # The nonlocal total binds to this variable.
+        total = 0
+
+        def do_core_computations(_list):
+
+            # Define the total variable as non-local, causing it to bind
+            # to the nearest non-global variable also called total.
+            nonlocal total
+
+            for i in _list:
+                total += i
+
+        do_core_computations(_list)
+
+    do_the_sum(_list)
+
+    return total
+
+sum_list_items([1, 2, 3]) // 0
+In the above example, total will bind to the variable defined inside the do_the_sum function,
+ and not the outer variable defined in the sum_list_items function, so the code will return 0.
+  Note that it is still possible to do double nesting such as this:
+ if total is declared nonlocal in do_the_sum the above example would work as expected.
+
+ def sum_list_items(_list):
+
+    # The nonlocal total binds to this variable.
+    total = 0
+
+    def do_the_sum(_list):
+
+        def do_core_computations(_list):
+
+            # Define the total variable as non-local, causing it to bind
+            # to the nearest non-global variable also called total.
+            nonlocal total
+
+            for i in _list:
+                total += i
+
+        do_core_computations(_list)
+
+    do_the_sum(_list)
+
+    return total
+
+sum_list_items([1, 2, 3]) // 6
+
+In the above example the nonlocal assignment traverses
+ up two levels before it locates the total variable that is local to sum_list_items.
+
+ so this is story of nonlocal..i wrote kth element in bst in binary tree project using this nonlocal
+ concept 
+
+one more observatn outer variable inside function
+def a():
+  c = 0
+  res = 0
+  def solve(root):
+      print(c) // 0
+ye print h jaega but agr c k sath kuch mutatn lagaoge toh error de dega because
+it does not understand ye kaun sa var h because inside toh kuch define na hua hai
+and global agr hai toh u haven't written global c so ye funda hai
+c = 0
+res = 0
+def solve(root):
+    print(c)
+
+    if c < 8:
+      print('hii')
+    c += 2
+    if c < 8:
+      print('hii2')
+
+solve(0) /// error code -- UnboundLocalError: local variable 'c' referenced before assignment
+
+now nonlocal is one way to mutate outer function variable,
+other way is mine way which we usually do
+
+def f1(): #outer function
+    a = [1]
+    def f2(): #outer function
+        a[0] = 2
+        print (a[0]) #prints 2
+    f2()
+    print (a[0]) #prints 2
+f1()
+
+but i haven't found cool way , use nonlocal one or best way is below
+def f1(): #outer function
+    f1.a = 1
+    def f2(): #outer function
+        f1.a = 2
+        print (f1.a) #prints 2
+    f2()
+    print (f1.a) #prints 2
+f1()
+
+here it basially tell that f1.a is function1 variable and in this way mutation h jaega
+so this is one way and inside class hm self.a kind of use krenge, a is
+variabe of that particular instance thats why kth smallest elem in bst me  work kia
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        self.c = 0
+        self.k = k
+        self.res = None
+        self.solve(root)
+        return self.res
+    def solve(self, root):
+        # print(self.c, root and root.val)
+        
+        if not root:
+            return 
+        if self.c > self.k:
+            return
+        
+        self.solve(root.left)
+        self.c += 1
+        if self.c == self.k:
+            # print(root.val, 'check')
+            self.res = root.val
+            return
+        self.solve(root.right)
+        
+        or
+
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        self.c = 0
+        # self.k = k
+        self.res = None
+        # return self.res
+        # c = 0
+        # res = 0
+        def solve(root):
+            print(self.c)
+            # print(self.c, root and root.val)
+
+            if not root:
+                return 
+            if self.c > k:
+                return
+
+            solve(root.left)
+            self.c += 1
+            if self.c == k:
+                # print(root.val, 'check')
+                self.res = root.val
+                return
+            solve(root.right)
+        solve(root)
+        return self.res
+          
+so here c k ek particular instance ka variable define kia j 
+dusre method me use kia hmne  ..dono way me two methods alag2 the then bhi share kia
+variable of class[self.c] and another ek methid k andar dusra functin me bhi same 
+way me [self.c]..dono mast kaam krega so in this way at every recursion call
+mutated variable rhta hai hmare paas [INTERESTING AND WOW]
+
+
+
+references - 
+https://www.codesdope.com/blog/article/nested-function-scope-of-variable-closures-in-pyth/#:~:text=A%20variable%20in%20a%20function,be%20used%20outside%20the%20function.
+
+CLASS OOPS GYAN
+
+If you do not want the variables of your class to be shared
+ by all instances of the class, you can declare variables within your
+  class without self. Let us understand this with an example: 
+
+class Car: 
+  model_list = []
+  def Car_info(self): 
+print("Model : ", self.model) 
+
+this model list will be shared by all instances of the class
+
+The self variable is used to represent the instance of the class which is 
+often used in object-oriented programming. It works as a reference to the object.
+
+>>> type(Rectangle.area ) 
+<class 'function'> 
+>>> type(rec1.area) 
+<class 'method'> 
+
+Here, the first one is a function and the second one is a method. A unique feature of Python is that the object itself is passed as the first argument to the corresponding function. 
+
+In the above example, the method call:  rec1.area()is equivalent to:  Rectangle.area(rec1). 
+
+Generally, when the method is called with some arguments, the corresponding class function is called by placing the method's object before the first argument.  
+
+Therefore: obj.method(args) becomes Class.method(obj, args). 
+
+This is the reason the first parameter of a function in a class must be the object itself. 
+Writing this parameter as self is merely a convention and not a keyword so it has no special
+ meaning in Python. We could 
+use other names (like this, that) but it is not preferred as it degrades code readability.
+
+reference - https://www.knowledgehut.com/blog/programming/self-variabe-python-examples
