@@ -4,3 +4,22 @@ Lets suppose 1 non- leaves node then total number of leaves node is equal to 2. 
 lead node  = non leaf+1 or non leaf = leaf-1
 that means total of nodes = N(no of leaf nodes )+ N(no of leaf nodes) - 1
 = 2N-1 where N is no of leaf nodes
+
+strategy is 
+1. think if you can gather ans from top to bottom like in bst check..if at any
+node level is true in coming downward(dfs) whn h discard kro
+2. if ans lies in left half already then whhy to go right so for that return everything
+like
+ res = solve(root.left)
+ if not res:
+  solve(root.right)
+like this elimatn h skta hai
+3. assumptions shi lo like in pathsum3 i have taken target < 0 h tohreturn kr do bt sum
+an be -ve also.second mistake ..if target 0 mil gya then aur neche mat jao leaf tak bt why aisa 
+bhi h skta hai ki ek aur target 0 wala h ye negative number postve number k scene hga so 
+assumptions shi lo
+
+-- Time Complexity: O(N), where N is the number of nodes in the given binary tree. 
+-- It is a standard DFS traversal technique where each node is visited once.
+-- space Complexity : O(H), where H is the height of given binary tree. It is required for implicit recursive stack space. H = logN in case of a complete binary tree and H=N in case of a skewed tree.
+

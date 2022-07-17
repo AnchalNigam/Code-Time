@@ -350,3 +350,14 @@ Writing this parameter as self is merely a convention and not a keyword so i
 use other names (like this, that) but it is not preferred as it degrades code readability.
 
 reference - https://www.knowledgehut.com/blog/programming/self-variabe-python-examples
+
+AUXILIARY SPACE COMPLEXITY F RECURISON 
+1. maximum depth of tree[height of tree], worst case me agr tree linked list hga 
+toh matlb jitne nodes hnge wo hga 0(n) else o(h) as left subtree k pop krke right
+k market me late hai hm so o(h)
+
+
+TIME COMPLEXITY - 
+time compleity of fibonnci if we see..we are calling two times n so two branches
+and kitne numbers k lie - n number k lie so branches^n so 2^n
+so fiboncci k ag memo kr do toh o(n) bar h call hga

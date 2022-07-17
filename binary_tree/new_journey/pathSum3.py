@@ -79,3 +79,17 @@ class Solution:
 # so i removed using dic[currPathSum]-1 wale logic se as currPathsum h hga j remove krna hga
 # interstng line which i was not able to write is  res[0] += dic[currPathSum-target]
 # here what i understood is if that exist then how much it exist add that [frankly, utta palle na pada]
+
+# ye   if(dic[currPathSum]-1 == 0):
+            #     del dic[currPathSum]
+            # else:
+            #     dic[currPathSum] -= 1
+# this is written because suppose 
+# tree = [1,-2,-3]
+# k = -1
+
+# here if u analyse {0:1, 1:1, -1:1} so when u go to right part then u will get 1+-3 which
+# is -2 so sum-k which -2-(-1) = -1 since if you dont remove the left part summatin data
+# which is -1 the right subtree will give u true as -1 exist but in realirty 1+-3 = -2 
+# so which is wrong so if you are done with left subtree remove from dictionary because
+# right subtree left k use nhi krega data

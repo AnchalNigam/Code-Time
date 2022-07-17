@@ -27,3 +27,20 @@ while right < len(nums):
 
 
 last ques - permutations in a string(hard)
+
+in sliding variable window, frstly we expan our window till we meet condition then
+we start decreasing which made our window invalid [check longest k unique substring]
+and jaise h valid hte h window turnt expand krne lagte h
+then again start inc 
+now come to point where we can aply sliding
+1. if larger window is valid[think longest k unique substring] then smaller will also be valid
+2. if smaller window is invalid, then larger window is invalid
+
+DONT MAKE ASSUMPTION THAT SUBARRY PROBLEMS CAN EASILY BE SOLVED USING SLIDING window
+as per above rules, subarray sum equals k cant be done using sliding window
+because take example , k =2 [1,1,1,-1] , here when we reach 3 we think ok this is invalid
+but but next elem -1 will make this innvalid...so smaller window invalid can make larger window
+invalid so here ye scene h..if positive numbers hte srf then yes we can solve using sliding
+window
+
+ITS VERY IMP TO LOOK AT CONSTRAINTS ALSO
