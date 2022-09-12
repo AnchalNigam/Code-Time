@@ -1,0 +1,173 @@
+
+
+# class Subscriber():
+#   def __init__(self, name):
+#     self.name = name
+#   def update(self, message):
+#     print('hii' + self.name + message)
+
+# class Publisher():
+#   def __init__(self):
+#     self.subscribers = set()
+
+#   def addSubscriber(self, who):
+#     self.subscribers.add(who)
+#   def removeSubscriber(self, who):
+#     self.subscribers.remove(who)
+#   def dispatch(self, message):
+#     for subscriber in self.subscribers:
+#       subscriber.update(message)
+
+# pub = Publisher()
+# bob = Subscriber('bob')
+# alice = Subscriber('alice')
+# pub.addSubscriber(bob)
+# pub.addSubscriber(alice)
+
+# pub.dispatch('its a lunchtime')
+# pub.removeSubscriber(bob)
+# pub.dispatch('its dinner')
+
+# this is basic pubsub model where register an candidate by making its subscriber[line 21]
+# when any dispatch happens then calling its update functn
+
+
+
+# one parent emitting event to multiple subscriber
+
+# More flexible Version 2:
+
+# class SubscriberOne():
+#   def __init__(self, name):
+#     self.name = name
+#   def update(self, message):
+#     print('hii' + self.name + message)
+
+# class SubscriberTwo():
+#   def __init__(self, name):
+#     self.name = name
+#   def recieve(self, message):
+#     print('hii' + self.name + message + 'recieved functn')
+
+# class Publisher():
+#   def __init__(self):
+#     self.subscribers = dict()
+
+#   def addSubscriber(self, who, callback = None):
+#     if callback is None:
+#       callback = getattr(who, 'update')
+
+#     self.subscribers[who] = callback
+#   def removeSubscriber(self, who):
+#     del self.subscribers[who]
+#   def dispatch(self, message):
+#     for subscriber, callback in self.subscribers.items():
+#       callback(message)
+
+# pub = Publisher()
+# bob = SubscriberOne('bob')
+# alice = SubscriberTwo('alice')
+
+# pub.addSubscriber(bob, bob.update)
+# pub.addSubscriber(alice, alice.recieve)
+# pub.dispatch('its a lunchtime')
+
+# in this we have given flexibibility that we can have multiple subscriber type 
+# so acc calling the callback functn 
+
+# verrsion 3[more flexibile , having multiple observing events]
+
+# class SubscriberOne():
+#   def __init__(self, name):
+#     self.name = name
+#   def update(self, message):
+#     print('hii' + self.name + message)
+
+# class SubscriberTwo():
+#   def __init__(self, name):
+#     self.name = name
+#   def recieve(self, message):
+#     print('hii' + self.name + message + 'recieved functn')
+
+# class Publisher():
+#   def __init__(self, events):
+#     self.subscribers = { event: dict() for event in events}
+#   def get_subscribers(self, event):
+#     return self.subscribers[event]
+
+#   def addSubscriber(self, event, who, callback = None):
+#     if callback is None:
+#       callback = getattr(who, 'update')
+
+#     self.get_subscribers(event)[who] = callback
+#   def removeSubscriber(self, event, who):
+#     del self.get_subscribers(event)[who]
+#   def dispatch(self, event, message):
+#     for subscriber, callback in self.get_subscribers(event).items():
+#       callback(message)
+
+# pub = Publisher(['lunch', 'dinner'])
+# bob = SubscriberOne('bob')
+# anchal = SubscriberOne('anchal')
+# alice = SubscriberTwo( 'alice')
+# pub.addSubscriber('lunch', bob, bob.update)
+# pub.addSubscriber('dinner', alice, alice.recieve)
+# pub.addSubscriber('lunch', anchal, anchal.update)
+
+# pub.dispatch('lunch', 'its alunch time')
+# pub.dispatch('dinner', 'its alunch time')
+
+# this is more flexile, seee here diff types of observable are there [events]
+# each type of event has separate observers maintain..like in amazon notify me ek observable h
+# use tarah youtube topic based subsribe ek observable h skta hai
+# so diff types k events k basis pe subscribers rkha hai
+# then diff subsribers bi h skte like subscribeone and 2 like ek mobile se subscription kia
+# ek desk se so dono type k subscribers bhi define kie h and kaun sa functn call hga that
+# also is dynamic so more flexible implementn of this pattern
+
+# version4 - this i am trying to mimic real life implemnetatn as above implementatn has
+# array..storing millions of subscribers in such way in code is not logical i guess so i am 
+# thinking real life based implementn
+
+# here i am thinking db - store topic[topic u can say to which subsribers subscribe]
+# subscriberId, subscriberType, callback
+
+class SubscriberOne():
+  def __init__(self, name):
+    self.name = name
+  def update(self, message):
+    print('hii' + self.name + message)
+
+class SubscriberTwo():
+  def __init__(self, name):
+    self.name = name
+  def recieve(self, message):
+    print('hii' + self.name + message + 'recieved functn')
+
+class Publisher():
+  def __init__(self, events):
+    self.subscribers = { event: dict() for event in events}
+  def get_subscribers(self, event):
+    # fetching data from db
+    # return db.get where topic = event
+    return self.subscribers[event]
+
+  def addSubscriber(self, entityId, subscriberId, subscriberType, callback = None):
+    # think we are inserrting into pubsub table this data
+    # db.create(subscriberId, topic, callback, subscriberType)
+    pass
+  def removeSubscriber(self, event, who):
+    del self.get_subscribers(event)[who]
+  def dispatch(self, event, message):
+    # get subscribers on the basis of topic
+    # for subscriber from topic[db array]
+    # initialize subscriber
+    # bob = SubscriberOne(subscriberId)
+    # bob[callback](data)
+    # for subscriber, callback in self.get_subscribers(event).items():
+    #   callback(message)
+    pass
+
+# like this we can implement, although there are inbuilt products like apache kafka
+#  Apache ActiveMQ, Amazon SQS, IBM Websphere MQ, RabbitMQ, and RocketMQ are message queuing 
+# need to learn message queuing and pubsub diff 
