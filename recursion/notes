@@ -84,22 +84,6 @@ global variable total, this will change global total as below example
 
 it will give u perfect answer as we have speificed ki total j hai global wala use kro
 toh btana padta hai otherwise wo locally dekhega
-_my_global = 5
-
-def func1():
-  if True:
-    _my_global = 3
-
-
-def func2():
-    print(_my_global)
-
-func1()
-print(_my_global)
-func2()
-check this example...if we call func2 it will print variable 5 inside func2 bhale h
-hmne  func1 me change kia hai variable value kyunki func1 m hmne ye nhi btaya
-that we are changing global variable..wo local h treat kr rha hai _my_global_ k func1 me
 
 2nd part [ primitive value k bat h rhe hai like int, str]
 variable access in nested function

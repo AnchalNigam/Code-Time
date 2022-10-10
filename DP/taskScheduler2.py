@@ -23,7 +23,7 @@ class Solution:
 # then agr waitList me h see kis din hne chahye kaam if time jyda h mns curr day pehle h
 # break lena padega so just update curr to jis din wo kaam krna hai
 # else whi rhne do mns chota h waitList[task] so normal logic waitList[task]=c+space+1
-# c+=1 
+# c+=1
 
                 
             
