@@ -1,0 +1,25 @@
+three types of problems i learnt, one is merge intervals - in this
+if we need to find overlapping then sort array, sort array se start wala elem ascending 
+me a ajayega. fr fr end > start of second elem that means overlap...then check
+if start > dekhe matlb overalp nhi h toh merged value insert kr do result me
+so ye thought h ki overlap k maintain kr rhe fr jahan na dekha whn merged krke result daal dia   
+
+
+
+dusre kind of questn is ki if we want to see ki at a time kite overlap hue like meeting 2 and max
+bandwidth me hme ye h find out krna tha ki kite intervals/meetings/channels overlap h rhe hai
+ye wale ques me at a time kita overlap dekhna hai ar upar wale me merge krna hai.....
+merge intervals me agr priority queue rkhnge toh at a time overlap nhi dekhega
+take eg - [(1,6), (2,3), (4,5), (8,10), (10,15)]
+
+is questn me priority queue min end time maintain hta h and array m starttime sorted hta hai
+so now (2,3) in heap now ab 1,6 aya ab start time is < 2,3 then overlap hai..
+now 4,5 aya wo 3 se jyda h start time(4>3) so pop kr do ab isko visualize kro (1,6),(2,3),(4,5)
+me ap merging ni kr paoge because ap individual endtime chote wale event k next wale array 
+ele se compare kr rhe agr wo non merging h toh pop kr de rhe bt 1,6 se wo 2,3 overlap kia hai
+uska jawab maintain na kr paoge islie merge interval me use just soting of start time
+no need of priority queue(maintainig end time).priority queue wala btata hai ki at a time
+kite overlap interval h like 1,6 2,3 overlap h at a time fr 1,6 4,5 ai overlap at a time
+but not 1,6 2,3 4,5 at a time nhi h as 2,3 4,5 alag alag h so at a time bs
+do h elem overlap h...so at a time overlap me think of this...two concepts yaad rkho
+one just sorting other sorting+ priority queue

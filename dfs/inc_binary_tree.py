@@ -42,7 +42,7 @@ class Solution:
             inorder(root.left)
             root.left = None
             self.curr.right = root
-            self.curr = s
+            self.curr = root
             inorder(root.right)
      
         inorder(root)
