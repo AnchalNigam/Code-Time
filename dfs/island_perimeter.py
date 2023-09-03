@@ -47,3 +47,6 @@ class Solution:
 # is traversed so again back to (3,0) now go to (2,0) again return as its 0 (water) now 
 # again back to (3,0) now go to (3,-1) again back-> now ab (2,1) ka dekhnge and then usko 
 # krke fr (1,1) so is tarah se backtrack hta
+
+#  The recursive calls in the dfs function consume additional space on the call stack. The maximum depth of the recursive calls depends on the size of the island in the grid. In the worst case, if the entire grid is filled with a single island, the maximum depth of recursion would be equal to the total number of cells in the grid. 
+# Therefore, the space complexity of the recursive calls can be considered O(rows x columns).
